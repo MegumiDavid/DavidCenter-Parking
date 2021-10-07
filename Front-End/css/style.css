@@ -7,9 +7,40 @@ body, html{
     margin: 0px auto;
 }
 
+/* texts */
 a{
     text-decoration: none;
 }
+
+h1{
+    font-size: 64px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+    line-height: 80px;
+    margin-bottom: 37px;
+    letter-spacing: 2px;
+}
+
+p{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color:white;
+    margin-bottom: 55px;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
+
+h4{
+    font-family: 'Roboto', sans-serif;
+    font-size: 400;
+    color: #2B353E;
+    font-size:18px;
+    line-height: 22px;
+    margin-bottom: 22px;
+}
+/* texts */
 
 nav{
     display: flex;
@@ -65,25 +96,6 @@ a .nav-item:hover{
     margin-right: 50px;
 }
 
-h1{
-    font-size: 64px;
-    font-weight: 500;
-    font-family: 'Poppins', sans-serif;
-    color:white;
-    line-height: 80px;
-    margin-bottom: 37px;
-    letter-spacing: 2px;
-}
-
-p{
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color:white;
-    margin-bottom: 55px;
-    line-height: 30px;
-    letter-spacing: 1px;
-}
 
 button {
     background-color: #FFA630;
@@ -147,7 +159,7 @@ button {
 
 .about-us-section{
     background-color: #2B353E;
-    padding: 50px 0px;
+    padding: 75px 0px;
 }
 
 .about-us{
@@ -208,14 +220,6 @@ footer{
     margin-top: 22px;
 }
 
-h4{
-    font-family: 'Roboto', sans-serif;
-    font-size: 400;
-    color: #2B353E;
-    font-size:18px;
-    line-height: 22px;
-    margin-bottom: 22px;
-}
 
 li{
     margin-bottom: 22px;
@@ -223,4 +227,132 @@ li{
     font-size: 14px;
     font-family: 'Roboto', sans-serif;
     font-size: 400;
+}
+
+.cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card1{
+    width: 30%;
+    height:500px;;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+}
+.card2{
+    width: 30%;
+    height:500px;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+}
+.card3{
+    width: 30%;
+    height:500px;;
+    background-color: #FFFFFF;
+    border-radius: 25px;
+    text-align: center;
+    align-items: center;
+}
+
+.price-section{
+    height:30%;
+    background-color: #FFA630;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    text-align: left;
+}
+
+.price-section-text{
+    vertical-align: center;
+    width:50%;
+    margin: 0px auto;
+    padding-top: 9%;
+}
+
+.price-section h1{
+    line-height: 70px;
+    margin-bottom: 0px;
+    letter-spacing: 0px;
+    font-weight: 500;
+}
+
+h3{
+    color: white;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+
+}
+
+.price-text-section p{
+    color:#2B353E;
+    width: 80%;
+    margin: 15px auto;
+    text-align: left;
+}
+
+.primary-btn{
+    display: inline-block;
+    background-color: #FFA630;
+    color:white;
+    font-size: 24px;
+    border-radius: 25px;
+    padding:25px 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-right: 40px;
+}
+
+.secounday-btn{
+    display: inline-block;
+    background-color: #ffa53000;
+    color:#FFA630;
+    border:4px solid #FFA630;
+    font-size: 24px;
+    border-radius: 25px;
+    padding:25px 45px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-left: 40px;
+}
+
+.buttons-section{
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.bg-light{
+    background-color: white;
+}
+
+.dark-text h2{
+    color:#2B353E;
+}
+.dark-text p{
+    font-weight: 400;
+    color:#2B353E;
+}
+
+.bg-dark{
+    background-color:#2B353E;
+}
+
+.bg-dark li, .bg-dark p{
+    color:#ffffffa9
+}
+
+.bg-dark h4{
+    color: #FFFFFF;
+    font-weight: 200;
+}
+
+.bg-dark .bold-logo, .bg-dark .thin-logo{
+    color:white;
 }
