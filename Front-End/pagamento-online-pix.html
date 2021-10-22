@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DavidCenter - Estacionamento</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- css reset -->
+    <link rel="stylesheet" href="css/css-reset.css">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="payment-header">
+            <a href="index.html" class="navbar-logo">
+                <span class="bold-logo">David</span><span class="thin-logo">Center</span>
+            </a>
+            <div class="page-name">Pagamento Online</div>
+        </div>
+
+        <h1 style="color:#FFA630; font-size: 38px;">Método de pagamento: PIX</h1>
+
+        <form action="mail.php" method="post">
+
+            <div class="inputwrapper">
+                <label for="cartaoID">Insira o ID do cartão do estacionamento</label>
+                <input type="text" name="cartaoID" id="cartaoID" placeholder="0000.0000">
+            </div>
+            
+            <div class="inputwrapper">
+                <label for="numCartao">Insira o código do PIX</label>
+                <input type="text" name="numCartao" id="numCartao" placeholder="0000.0000.0000.0000">   
+            </div>
+
+
+            <div class="inputwrapper">
+                <h4 style="color:black; font-style:bold">Valor a Pagar: R$</h4>
+            </div>
+
+            <div class="inputwrapper">
+                <input type="submit" value="Efetuar Pagamento">
+            </div>
+        
+
+            <div class="inputwrapper">
+                <h4 style="color:black; font-style:bold">Status do Pagamento</h4>
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>

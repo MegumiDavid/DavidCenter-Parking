@@ -22,15 +22,22 @@ h1{
     letter-spacing: 2px;
 }
 
-p{
-    font-size: 18px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 300;
-    color:white;
-    margin-bottom: 55px;
-    line-height: 30px;
-    letter-spacing: 1px;
+h2{
+    color: #2B353E;
+    font-size: 40px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 45px;
 }
+
+h3{
+    color: #2B353E;
+    font-size: 36px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 45px;
+}
+
 
 h4{
     font-family: 'Roboto', sans-serif;
@@ -40,8 +47,20 @@ h4{
     line-height: 22px;
     margin-bottom: 22px;
 }
+
+p{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color:white;
+    margin-bottom: 55px;
+    line-height: 30px;
+    letter-spacing: 1px;
+}
 /* texts */
 
+
+/* nav start */
 nav{
     display: flex;
     justify-content: space-between;
@@ -55,19 +74,12 @@ nav{
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-size: 500;
-}
-
-a .nav-item:hover{
-    color:#FFA630;
-}
-
-.nav-items .nav-item{
     margin-left:25px;
-    font-size: 18px;
 }
+
 .nav-items .nav-item:hover{
     color:#FFA630;
-    transition: 0.6s;
+    transition: 0.5s;
 } 
 
 .bold-logo{
@@ -83,59 +95,54 @@ a .nav-item:hover{
     color: #2B353E;
     font-size: 36px;
 }
+/* nav end */
 
 
+/* hero section */
 .hero-section{
-    background-color: #2B353E;
-    padding:100px 0px;
+    background: url("../img/header-img.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    min-height: 70vh;
+    padding:5vh 0px;
 }
 
 .text-section{
-    width: 55%;
-    /* width: 600px; */
-    margin-right: 50px;
+    margin-top: 15vh;
+    max-width: 65%;
 }
 
-
-button {
+.btn {
     background-color: #FFA630;
     padding: 10px 20px;
     color:white;
-    border-color: #FFA630;
+    border: rgba(255, 255, 255, 0);
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: 500;
     letter-spacing: 1px;
 } 
 
-/* button:hover{
-} */
 
+
+.btn:hover{
+    color: #FFA630;
+    background-color: white;
+    transition: 0.5s;
+    border: rgba(255, 255, 255, 0);
+}
+
+/*Services Section Start*/
 .services-section{
     text-align: center;
-    padding:50px;
+    padding:10vh;
 }
 
 .services-item{
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.services-section h2{
-    color: #2B353E;
-    font-size: 48px;
-    font-weight: 500;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 45px;
-}
-
-.services-section h3{
-    color: #2B353E;
-    font-size: 36px;
-    font-weight: 500;
-    font-family: 'Poppins', sans-serif;
-    margin-bottom: 45px;
 }
 
 .services-section p{
@@ -147,22 +154,25 @@ button {
     width:45%
 }
 
-.vagas-service{
-    flex:right;
-    width:45%
-}
-
 .vertical-line{
     border-left: 6px solid #FFA630;
     height: 500px;
 }
 
+.parking-control-service{
+    flex:right;
+    width:45%
+}
+/*Services Section End*/
+
+
+/*About us start*/
 .about-us-section{
     background-color: #2B353E;
-    padding: 75px 0px;
+    padding: 10vh 0px;
 }
 
-.about-us{
+.about-us-flexbox{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -182,13 +192,11 @@ button {
 
 .about-us-text h2{
     color: white;
-    font-size: 48px;
-    font-weight: 500;
-    font-family: 'Poppins', sans-serif;
-    line-height: 30px;
-    margin-bottom: 45px;
 }
+/*About us start*/
 
+
+/*footer starts*/
 footer{
     display: flex;
     padding:60px;
@@ -198,28 +206,27 @@ footer{
     flex: 1;
 }
 
-.footer-items{
+.footer-col{
     flex: 1;
     display: flex;
     /* flex-wrap: wrap; */
     justify-content: space-between;
 }
 
-.footer1 .bold-logo{
+.footer-items .bold-logo{
     font-size: 24px;
 }
 
-.footer1 .thin-logo{
+.footer-items .thin-logo{
     font-size: 24px;
 }
 
-.footer1 p{
+.footer-items p{
     color: #5a6778dc;
     width:55%;
     font-size: 14px;
     margin-top: 22px;
 }
-
 
 li{
     margin-bottom: 22px;
@@ -229,36 +236,40 @@ li{
     font-size: 400;
 }
 
+.footer-items li:hover{
+    color:#FFA630;
+    transition: 0.5s;
+}
+/*footer ends*/
+
+
+
+
+/*Payment Page*/
+
+/*hero section starts*/
+.hero-section-payment{
+    background-image: none;
+    background-color: #2B353E;
+    min-height: 50vh;
+}
+
+/*cards starts*/
 .cards{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.card1{
+.card{
     width: 30%;
-    height:500px;;
+    max-height:100vh;
     background-color: #FFFFFF;
     border-radius: 25px;
     text-align: center;
     align-items: center;
 }
-.card2{
-    width: 30%;
-    height:500px;
-    background-color: #FFFFFF;
-    border-radius: 25px;
-    text-align: center;
-    align-items: center;
-}
-.card3{
-    width: 30%;
-    height:500px;;
-    background-color: #FFFFFF;
-    border-radius: 25px;
-    text-align: center;
-    align-items: center;
-}
+
 
 .price-section{
     height:30%;
@@ -268,26 +279,16 @@ li{
     text-align: left;
 }
 
-.price-section-text{
+.price-section-title h3 {
+    margin-bottom: 0px;
+    color: white;
+}
+
+.price-section-title{
     vertical-align: center;
     width:50%;
     margin: 0px auto;
     padding-top: 9%;
-}
-
-.price-section h1{
-    line-height: 70px;
-    margin-bottom: 0px;
-    letter-spacing: 0px;
-    font-weight: 500;
-}
-
-h3{
-    color: white;
-    font-size: 24px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-
 }
 
 .price-text-section p{
@@ -296,30 +297,28 @@ h3{
     margin: 15px auto;
     text-align: left;
 }
+/*cards ends*/
 
-.primary-btn{
-    display: inline-block;
-    background-color: #FFA630;
-    color:white;
-    font-size: 24px;
-    border-radius: 25px;
-    padding:25px 35px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    margin-right: 40px;
+/*button starts */
+.button-section{
+    text-align: center;
+    align-items: center;
+    margin-top: 70px;
 }
 
-.secounday-btn{
-    display: inline-block;
-    background-color: #ffa53000;
+.button-section .btn{
+    margin-left: 50px;
+}
+
+.secundary-btn{
+    margin-right: 50px;
+    background-color: rgba(255, 255, 255, 0);
     color:#FFA630;
-    border:4px solid #FFA630;
-    font-size: 24px;
-    border-radius: 25px;
-    padding:25px 45px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    margin-left: 40px;
+    border:#FFA630 1.5px solid;
+}
+
+.secundary-btn:hover{
+    border:#FFA630 1.5px solid;
 }
 
 .buttons-section{
@@ -327,7 +326,10 @@ h3{
     justify-content: center;
     margin-top: 60px;
 }
+/*button ends */
+/*hero section ends*/
 
+/*changing colors start*/
 .bg-light{
     background-color: white;
 }
@@ -344,15 +346,101 @@ h3{
     background-color:#2B353E;
 }
 
-.bg-dark li, .bg-dark p{
-    color:#ffffffa9
-}
-
 .bg-dark h4{
     color: #FFFFFF;
     font-weight: 200;
 }
 
+.bg-dark li, .bg-dark p{
+    color:#ffffffbe
+}
+
 .bg-dark .bold-logo, .bg-dark .thin-logo{
+    color:white;
+}
+
+.bg-light{
+    background-color: white;
+}
+
+.bg-light h2, .bg-light p{
+    color:#2B353E;
+    font-weight: 400;
+}
+/*changing colors ends*/
+
+
+/*payment page*/
+.payment-header{
+    padding: 50px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.page-name{
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+    color:#2B353E;
+}
+
+.inputwrapper{
+    margin-top: 25px;
+}
+
+label{
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+    display: block;
+}
+
+input{
+    width: 65%;
+    padding:10px;
+    border: grey 1px solid;
+    border-radius: 5px;
+}
+
+input[type=submit]{
+    width: 25%;
+    background-color: #FFA630;
+    color: white;
+    border: rgba(255, 255, 255, 0);
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+}
+
+
+/*vagas page*/
+.hero-section-vagas{
+    background-image: none;
+    background-color: #2B353E;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+}
+
+.hero-section-vagas h2 {
+    color: white;
+}
+
+.num-vagas-section{
+    margin-top: 100px;
+    display: flex;
+    justify-content:space-around;
+}
+
+.feedback-section{
+    margin-top: 80px;
+}
+
+.hero-section-vagas h3{
     color:white;
 }
