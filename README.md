@@ -1,6 +1,7 @@
 # DavidCenter-Parking
  David Center Estacionamento
 
+### Etapas de desenvolvimento
 1. ~~Desenvolvimento do site~~
 2. Sistema de entrada
 3. Sistema p modificar as politicas do estacionamento
