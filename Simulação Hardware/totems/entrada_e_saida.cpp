@@ -4,12 +4,7 @@
 #include <iomanip>
 #include <locale.h>
 
-//matriz que contem as vagas
-int andar1[4][15];
-int andar2[4][15];
-int andar3[4][15];
-int andar4[4][15];
-int andar5[4][15];
+int cod = 0; // variavel que guarda codigo (pegar ultimo codigo do bd)
 
 //funcao que valida int
 template<typename t>
@@ -46,10 +41,53 @@ void menu_de_opcoes(int& opcao_menu)
 }
 
 
+void entrada()
+{
+    cod = cod+1;
+   // data e hora baseadas nas config. locais
+   time_t agora = time(0);
+   // converte para string
+   char* hora_entrada = ctime(&agora);
+   std::cout << "Codigo do ticket simulado: " << cod << std::endl;
+   std::cout << "Data e hora de entrada: " << hora_entrada << std::endl;
+}
+
+void saida()
+{
+    // data e hora baseadas nas config. locais
+    time_t agora = time(0);
+    // converte para string
+    char* hora_saida = ctime(&agora);
+    int cod_saida;
+    valida_input(cod_saida, "Codigo do ticket: ");
+        //pegar o codigo do bd
+        /* */
+        //checar se a saida foi liberada pelo sistema (no momento vo simular isso)
+        int resposta;
+        do{
+            valida_input(resposta, "A saida do ticket foi liberada?(1=s/2=n)");
+            if (resposta < 1 || resposta > 2) std::cout<<"\n>>Insira apenas 1 para 's' ou 2 para 'n'!\n";
+        } while (resposta < 1 || resposta > 2);
+
+        switch (resposta)
+        {
+            case 1: //'S' - saida liberada
+                //escrever  cod ticket e hora de entrada
+                std::cout << "Data e hora de saida: " << hora_saida << std::endl;
+                //envia pro bd
+                break;
+
+            case 2: //'N' - saida negada
+                std::cout << "O pagamento da taxa de estacionamento nao foi realizado! " << std::endl;
+            break;
+        }
+
+
+}
 
 int main()
 {
-    int opcao, n, n_procurar,x, conta=0;
+    int opcao;
     
     
     std::cout<<"Opcao digitada: "<<opcao; 
@@ -60,9 +98,11 @@ int main()
         
         switch(opcao)
         {
-            case 1:                 
+            case 1:
+                entrada();                 
                 break; 
-            case 2:                 
+            case 2:
+                saida();                 
                 break;
             case 3: 
                 break;
