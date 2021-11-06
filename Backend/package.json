@@ -1,0 +1,31 @@
+{
+  "name": "davidparking",
+  "version": "1.0.0",
+  "description": "backend da aplicação web David Parking",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MegumiDavid/DavidCenter-Parking.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MegumiDavid/DavidCenter-Parking/issues"
+  },
+  "homepage": "https://github.com/MegumiDavid/DavidCenter-Parking#readme",
+  "dependencies": {
+    "@koa/router": "^10.1.1",
+    "dotenv": "^10.0.0",
+    "knex": "^0.95.13",
+    "koa": "^2.13.4",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "prettier": "^2.4.1"
+  }
+}
