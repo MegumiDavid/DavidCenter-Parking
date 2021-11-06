@@ -72,7 +72,7 @@ void saida()
         switch (resposta)
         {
             case 1: //'S' - saida liberada
-                //escrever  cod ticket e hora de entrada
+                //escrever  cod ticket e hora de entrada 
                 std::cout << "Data e hora de saida: " << hora_saida << std::endl;
                 //envia pro bd
                 break;
