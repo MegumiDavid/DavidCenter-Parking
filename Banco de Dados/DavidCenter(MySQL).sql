@@ -7,7 +7,7 @@ create table CLIENTES
   STATUS_SAIDA char(30) not null);
   
 create table TAXAS
-( CODIGO_PAGAMENTO int, primary key(CODIGO_PAGAMENTO),
+( CODIGO_PAGAMENTO int auto_increment, primary key(CODIGO_PAGAMENTO),
   HORA_SOLICITACAO char(30),
   PRECO_TAXA float,
   CODIGO_TICKET_PAG integer,

@@ -20,8 +20,11 @@
   "dependencies": {
     "@koa/router": "^10.1.1",
     "dotenv": "^10.0.0",
-    "knex": "^0.95.13",
+    "ejs": "^3.1.6",
+    "knex": "^0.95.14",
     "koa": "^2.13.4",
+    "koa-static": "^5.0.0",
+    "koa-views": "^7.0.2",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
