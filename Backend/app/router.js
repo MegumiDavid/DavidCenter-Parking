@@ -1,12 +1,12 @@
 import Router from '@koa/router'
-import { Cliente, Taxa } from './database.js'
+import { Ticket, Pagamento, Vaga } from './database.js'
 
 const router = new Router()
 
-router.get('/', async ctx => {
-  const cliente = await Cliente.create({ statusSaida: 'aaaa' })
-  const taxa = await Taxa.create({ codigoTicket: cliente.codigo })
-  await ctx.render('home', { cliente, taxa })
+router.get('/home', async ctx => {
+  const vaga = await Vaga.find('1A01')
+  const vagas = await Vaga.all()
+  await ctx.render('home', { vagas })
 })
 
 export default router
