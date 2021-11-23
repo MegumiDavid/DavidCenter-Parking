@@ -1,5 +1,7 @@
 import Router from '@koa/router'
 import { Ticket, Pagamento, Vaga } from './database.js'
+import makePayment from './payment.js'
+import getPrice from './payment.js'
 
 const router = new Router()
 
@@ -64,5 +66,8 @@ router.get('/vagas', async ctx => {
   await ctx.render('vagas', { vagaOcupada , vagaLivre, statusVaga})
 })
 
+router.get('/pagamento-online', async ctx => {
+  
+})
 
 export default router
