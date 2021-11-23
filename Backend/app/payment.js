@@ -19,10 +19,9 @@ function getPrice(ticket) {
 
 async function makePayment(ticketcod) { 
     const ticket = await Ticket.find(ticketcod);
-    const price = getPrice(ticket); console.log(price);
+    const price = getPrice(ticket); 
     await Pagamento.create({ hora: new Date(), preco: price, codigoTicket: ticketcod}); 
     await Ticket.save({codigo: ticketcod, statusSaida: 'OK'});
-    console.log('Pagamento realizado com sucesso!!');
 }
 
 export default makePayment
