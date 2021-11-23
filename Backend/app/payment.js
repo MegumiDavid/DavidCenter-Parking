@@ -19,9 +19,17 @@ function getPrice(ticket) {
 
 async function makePayment(ticketcod) { 
     const ticket = await Ticket.find(ticketcod);
-    const price = getPrice(ticket); 
-    await Pagamento.create({ hora: new Date(), preco: price, codigoTicket: ticketcod}); 
-    await Ticket.save({codigo: ticketcod, statusSaida: 'OK'});
+    switch (ticket.statusSaida) {
+        case 'DENIED':
+            const price = getPrice(ticket); 
+            await Pagamento.create({ hora: new Date(), preco: price, codigoTicket: ticketcod}); 
+            await Ticket.save({codigo: ticketcod, statusSaida: 'OK'});
+            console.log('Pagamento realizado com sucesso.')
+            break;
+        case 'OK':
+            console.log('Pagamento ja realizado previamente.')
+            break;
+    }
 }
 
 export default makePayment

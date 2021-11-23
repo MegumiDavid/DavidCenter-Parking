@@ -67,7 +67,7 @@ router.get('/vagas', async ctx => {
 })
 
 router.get('/pagamento-online', async ctx => {
-  
+
 })
 
 export default router
