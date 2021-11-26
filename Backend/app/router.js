@@ -1,14 +1,26 @@
 import Router from '@koa/router'
 import { Ticket, Pagamento, Vaga } from './database.js'
-import makePayment from './payment.js'
-import getPrice from './payment.js'
+import { makePayment, getPrice } from './payment.js'
 
 const router = new Router()
 
-router.get('/home', async ctx => {
-  const vaga = await Vaga.find('1A01')
+router.get('/', async ctx => {
   const vagas = await Vaga.all()
   await ctx.render('home', { vagas })
+})
+
+router.get('/pagamento/:id', async ctx => {
+  const id = ctx.params.id
+  if (!id) {
+    await ctx.render('paymentError', { error: new Error('Código de ticket inválido') })
+    return
+  }
+  const ticket = await Ticket.find(id)
+  const price = getPrice(ticket)
+  const payments = await Pagamento.query().where({ CODIGO_TICKET_PAG: ticket.codigo })
+  const payment = payments[payments.length - 1] || null
+
+  await ctx.render('payment', { ticket, price, payment })
 })
 
 router.get('/vagas', async ctx => {
@@ -24,50 +36,45 @@ router.get('/vagas', async ctx => {
   let vagaLivre4 = 0
   let vagaLivre5 = 0
 
-  for(let i=0;i<vagas.length;i++)
-  {
-    if(vagas[i].status == 0)
-    {
+  for (let i = 0; i < vagas.length; i++) {
+    if (vagas[i].status == 0) {
       vagaLivre++
       switch (Number(vagas[i].codigo[0])) {
         case 1:
           vagaLivre1++
-          numVagasAndar[0] = vagaLivre1 
-          break;
+          numVagasAndar[0] = vagaLivre1
+          break
         case 2:
           vagaLivre2++
           numVagasAndar[1] = vagaLivre2
-          break;
+          break
         case 3:
           vagaLivre3++
           numVagasAndar[2] = vagaLivre3
-          break;
+          break
         case 4:
           vagaLivre4++
           numVagasAndar[3] = vagaLivre4
-          break;
+          break
         case 5:
           vagaLivre5++
           numVagasAndar[4] = vagaLivre5
-          break;                  
+          break
         default:
-          console.log(`O estacionamento não possui o andar ${vagas[i].codigo[0]}`);
-      } 
+          console.log(`O estacionamento não possui o andar ${vagas[i].codigo[0]}`)
+      }
+    } else {
+      vagaOcupada++
     }
-    else{vagaOcupada++}
   }
 
   function getMaxOfArray(numArray) {
-    return Math.max.apply(null, numArray);
+    return Math.max.apply(null, numArray)
   }
 
   melhorVaga = numVagasAndar.indexOf(getMaxOfArray(numVagasAndar)) + 1
   const statusVaga = `O ${melhorVaga}° andar possui mais vagas disponíveis`
-  await ctx.render('vagas', { vagaOcupada , vagaLivre, statusVaga})
-})
-
-router.get('/pagamento-online', async ctx => {
-
+  await ctx.render('vagas', { vagaOcupada, vagaLivre, statusVaga })
 })
 
 export default router
