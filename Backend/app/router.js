@@ -4,6 +4,9 @@ import { makePayment, getPrice } from './payment.js'
 
 const router = new Router()
 
+
+let preco = [10,15,25]
+
 router.get('/', async ctx => {
   const vagas = await Vaga.all()
   await ctx.render('home', { vagas })
@@ -21,6 +24,25 @@ router.get('/pagamento/:id', async ctx => {
   const payment = payments[payments.length - 1] || null
 
   await ctx.render('payment', { ticket, price, payment })
+})
+
+router.get('/alterar-preco-gerente-1234', async ctx => {
+  console.log("atual: " + preco);
+  await ctx.render('alterar', {preco: preco})
+})
+
+router.post('/alterar-preco', async ctx => {
+  // ctx.request.body
+  let preco1 = ctx.request.body.preco1
+  let preco2 = ctx.request.body.preco2
+  let preco3 = ctx.request.body.preco3
+  
+  preco[0] = preco1
+  preco[1] = preco2
+  preco[2] = preco3
+  
+  console.log("modificado " + preco);
+  await ctx.render('precos', {preco: preco})
 })
 
 router.get('/vagas', async ctx => {
@@ -77,4 +99,5 @@ router.get('/vagas', async ctx => {
   await ctx.render('vagas', { vagaOcupada, vagaLivre, statusVaga })
 })
 
+export {preco}
 export default router

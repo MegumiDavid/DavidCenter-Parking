@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Preco atual</h1>
+    <h3>Preco 1: <%= preco[0] %></h3>
+    <h3>Preco 2: <%= preco[1] %></h3>
+    <h3>Preco 3: <%= preco[2] %></h3>
+
+
+    <form action="/alterar-preco" method="post">
+       <input type="number" name="preco1" placeholder="preco1" required>
+       <br>
+       <input type="number" name="preco2" placeholder="preco2" required>
+       <br>
+       <input type="number" name="preco3" placeholder="preco3" required>
+       <br>
+       <button type="submit">Fire Away</button>
+    </form>
+</body>
+</html>
