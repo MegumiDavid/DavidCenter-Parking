@@ -1,0 +1,1 @@
+document.getElementById("change-price").onclick = alert('Os precos serao alterados')

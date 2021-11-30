@@ -1,5 +1,5 @@
 import { Ticket, Pagamento, Vaga } from './database.js'
-import precos from './router.js'
+import preco from './router.js'
 
 export function getPrice(ticket) {
   const start = ticket.horaEntrada
@@ -9,11 +9,11 @@ export function getPrice(ticket) {
   var taxa = 0
 
   if (diff < 60) {
-    taxa = precos[0]
+    taxa = preco.preco1
   } else if (diff >= 60 && diff < 120) {
-    taxa = precos[1]
+    taxa = preco.preco2
   } else if (diff >= 120) {
-    taxa = precos[2]
+    taxa = preco.preco3
   }
   return taxa
 }
