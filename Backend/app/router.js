@@ -17,8 +17,31 @@ router.get('/pagamento/:id', async ctx => {
   }
   const ticket = await Ticket.find(id)
   const price = getPrice(ticket)
-  const payments = await Pagamento.query().where({ CODIGO_TICKET_PAG: ticket.codigo })
+  const payments = Pagamento.columnsToData(await Pagamento.query().where({ CODIGO_TICKET_PAG: ticket.codigo }))
   const payment = payments[payments.length - 1] || null
+
+  await ctx.render('payment', { ticket, price, payment })
+})
+
+router.post('/pagamento/:id', async ctx => {
+  const id = ctx.params.id
+  if (!id) {
+    await ctx.render('paymentError', { error: new Error('Código de ticket inválido') })
+    return
+  }
+
+  const data = ctx.request.body
+
+  const ticket = await Ticket.find(id)
+
+  const payments = await Pagamento.query().where({ CODIGO_TICKET_PAG: ticket.codigo })
+  const existingPayment = payments[payments.length - 1] || null
+  if (ticket.horaSaida || (existingPayment && existingPayment.validExit())) return ctx.redirect('/pagamento/' + id)
+
+  const price = getPrice(ticket)
+  const payment =
+    existingPayment ||
+    (await Pagamento.create({ codigoTicket: ticket.codigo, hora: new Date(Date.now()), preco: price }))
 
   await ctx.render('payment', { ticket, price, payment })
 })
