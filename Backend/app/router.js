@@ -1,11 +1,13 @@
 import Router from '@koa/router'
 import { Ticket, Pagamento, Vaga } from './database.js'
 import { makePayment, getPrice } from './payment.js'
+import { Price } from './precos.js'
 
 const router = new Router()
 
+let preco = new Price(10, 15, 25)
+
 router.get('/', async ctx => {
-  const vagas = await Vaga.all()
   await ctx.render('home', { vagas })
 })
 
@@ -44,6 +46,24 @@ router.post('/pagamento/:id', async ctx => {
     (await Pagamento.create({ codigoTicket: ticket.codigo, hora: new Date(Date.now()), preco: price }))
 
   await ctx.render('payment', { ticket, price, payment })
+})
+
+router.get('/alterar-preco-gerente-1234', async ctx => {
+  // console.log(`Preço Atual: R$${preco.preco1} R$${preco.preco2} R$${preco.preco3}`);
+  await ctx.render('alterar-preco', { preco: preco })
+})
+
+router.post('/alterar-preco', async ctx => {
+  let preco1 = ctx.request.body.preco1
+  let preco2 = ctx.request.body.preco2
+  let preco3 = ctx.request.body.preco3
+
+  preco.preco1 = preco1
+  preco.preco2 = preco2
+  preco.preco3 = preco3
+
+  // console.log(`Preço Modificado: R$${preco.preco1} R$${preco.preco2} R$${preco.preco3}`);
+  await ctx.redirect('/alterar-preco-gerente-1234')
 })
 
 router.get('/vagas', async ctx => {
@@ -100,4 +120,5 @@ router.get('/vagas', async ctx => {
   await ctx.render('vagas', { vagaOcupada, vagaLivre, statusVaga })
 })
 
+export { preco }
 export default router
