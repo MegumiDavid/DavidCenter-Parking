@@ -15,9 +15,10 @@
                 </div>
             </div>
 
-            <% if(!payment) { %>
+            <% if(!payment || !payment.validExit()) { %>
             <div class="row">
                 <form class="col-auto mx-auto" action="/pagamento/<%= ticket.codigo %>" method="post">
+                    <input type="text" name="card" id="card">
                     <button class="btn btn-primary btn-lg my-4" type="submit">Pagar</button>
                 </form>
             </div>
@@ -25,25 +26,7 @@
         </div>
     </main>
 
-    <div class="about-us-section bg-light">
-        <div class="container">
-            <div class="about-us-flexbox">
-                <div class="about-us-img">
-                    <img src="/img/about-us-img.png" alt="About Us Image">
-                </div>
-                <div class="about-us-text">
-                    <h2>Sobre Nós</h2>
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                        piece of
-                        classical Latin literature from 45 , making it over 2000 years old. Contrary to popular
-                        belief,
-                        Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
-                        literature
-                        from 45 BC, making it over 2000 years </p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%- include('parts/aboutUs'); %>
 
     <%- include('parts/footer'); %>
 

@@ -5,10 +5,10 @@ import { Price } from './precos.js'
 
 const router = new Router()
 
-let preco = new Price(10, 15, 25)
+const preco = new Price(10, 15, 25)
 
 router.get('/', async ctx => {
-  await ctx.render('home', { vagas })
+  await ctx.render('home')
 })
 
 router.get('/pagamento/:id', async ctx => {
@@ -48,7 +48,7 @@ router.post('/pagamento/:id', async ctx => {
   await ctx.render('payment', { ticket, price, payment })
 })
 
-router.get('/alterar-preco-gerente-1234', async ctx => {
+router.get('/alterar-preco', async ctx => {
   // console.log(`Preço Atual: R$${preco.preco1} R$${preco.preco2} R$${preco.preco3}`);
   await ctx.render('alterar-preco', { preco: preco })
 })
@@ -63,7 +63,7 @@ router.post('/alterar-preco', async ctx => {
   preco.preco3 = preco3
 
   // console.log(`Preço Modificado: R$${preco.preco1} R$${preco.preco2} R$${preco.preco3}`);
-  await ctx.redirect('/alterar-preco-gerente-1234')
+  await ctx.redirect('/alterar-preco')
 })
 
 router.get('/vagas', async ctx => {
