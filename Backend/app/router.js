@@ -11,6 +11,10 @@ router.get('/', async ctx => {
   await ctx.render('home')
 })
 
+router.get('/pagamento-online', async ctx =>{
+  await ctx.render('pagamento-online',{ preco: preco })
+})
+
 router.get('/pagamento/:id', async ctx => {
   const id = ctx.params.id
   if (!id) {

@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<%- include('parts/head', { title: 'DavidCenter - Estacionamento' }) %>
+<%- include('parts/head') %>
 
 <body>
     <%- include('parts/header'); %>
 
-    <%- include('parts/homeSection1'); %>
+    <main class="hero-section">
+        <div class="container">
+            <div class="text-section">
+                <h1>Estacione de Maneira Simples</h1>
+                <p>O novo estacionamento do David Center promove a melhor experiencia para os motorista. São
+                    vagas
+                    monitoradas para facilitar na hora de estacionar e pagamento online com cartão de crédio e
+                    PIX.
+                    Venha conhecer</p>
+                <a href="/about-us"><button class="btn">Saiba Mais</button></a>
+            </div>
+        </div>
+    </main>
 
-    <%- include('parts/homeSection2'); %>
+    <div class="services-section" id="services-section">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-item">
+                <div class="payment-service">
+                    <h3>Pagamento rapido e facil</h3>
+                    <br>
+                    <p> O David Center agora possui um pagamento facil e rapido. Agora os pagamentos sao possíveis ser feitas pelo nosso sistema web de pagamento. Basta inserir os seus dados que o pagamento da conta do estacionamento estara feito. Faça ja seu pagamento com o link abaixo</p>
+                    <a href="/pagamento-online"><button class="btn">Pague Agora</button></a>
+                </div>
+    
+                <div class="vertical-line"></div>
+    
+                <div class="parking-control-service">
+                    <h3>Estacionamento vagas controladas</h3>
+                    <p> O David Center agora possui um sistema que consegue controlar quantas vagas tem no estacionamento. Assim nos conseguimos orientar os motorista mais facilmente, conseguindo achar a vaga ideal mais rapidamente assim, as pessoas conseguem desfrutar mais tempo em nosso Shopping Center</p>
+                    <a href="/vagas"><button class="btn">Veja Vagas</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <%- include('parts/aboutUs'); %>
+    <%- include('parts/aboutUsDark'); %>
 
-    <%- include('parts/footer'); %>
+    <%- include('parts/footerLight'); %>
 </body>
 
 </html>
