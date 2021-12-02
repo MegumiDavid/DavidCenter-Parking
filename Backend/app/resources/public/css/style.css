@@ -57,6 +57,14 @@ p{
     line-height: 30px;
     letter-spacing: 1px;
 }
+
+.black-font{
+    color:#2B353E;
+}
+
+.orange-font{
+    color:#FFA630;
+}
 /* texts */
 
 
@@ -268,6 +276,7 @@ li{
     border-radius: 25px;
     text-align: center;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 
@@ -277,6 +286,7 @@ li{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     text-align: left;
+    padding-bottom: 10px;
 }
 
 .price-section-title h3 {
@@ -371,7 +381,7 @@ li{
 
 
 /*payment page*/
-.payment-header{
+.special-header{
     padding: 50px 0px;
     display: flex;
     justify-content: space-between;
@@ -427,10 +437,6 @@ input[type=submit]{
     min-height: 50vh;
 }
 
-h1#estacionamentoAgora{
-    padding-top: 10px; color:#FFA630
-}
-
 .hero-section-vagas h2 {
     color: white;
 }
@@ -441,21 +447,30 @@ h1#estacionamentoAgora{
     justify-content:space-around;
 }
 
-.feedback-section-flexbox{
-    display: flex;
-    align-items: center;
-}
-
 .feedback-section{
-    margin-top: 60px;
-    width: 100%;
-    padding:40px 0px;
-    text-align: center;
-    background-color: #ffa530;
-    border-radius: 16px;
+    border-radius: 32px;
+    margin-top: 80px;
+    background-color: #FFA630;
+    padding: 40px 0px 5px 0px ;
 }
 
 .hero-section-vagas h3{
     color:white;
-    margin-bottom: 0px;
+}
+
+/*Alterar Precos Page*/
+.hero-section-change-price{
+    background-color:#E1E1E1;
+}
+
+.black-font{
+    color:#2B353E;
+}
+
+.price-change-section{
+    padding: 100px 0px;
+}
+
+.price-change-section h2{
+    margin-bottom: 15px;
 }

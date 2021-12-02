@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <%- include('parts/header'); %>
+
+
+    <main class="hero-section hero-section-payment">
+        <div class="container bg-white">
+            <div class="h2 text-center">Dados do Ticket</div>
+            <div class="row">
+                <div class="col-6 mx-auto">
+                    <table class="w-100">
+                        <tr>
+                            <td>Horário de Entrada</td>
+                            <td class="text-end">
+                                <%= ticket.horaEntrada.toLocaleString("pt-BR") %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Estadia atual</td>
+                            <td class="text-end">
+                                <%= (Date.now() - ticket.horaEntrada.getTime()) / 1000 / 60 %> minutos
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Preço atual</td>
+                            <td class="text-end">
+                                <%= new Intl.NumberFormat('pt-BR', { style: 'currency' , currency: 'BRL'
+                                        }).format(price) %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Pagamento</td>
+                            <td class="text-end">
+                                <% if(payment) { %>
+                                <% } else { %>
+                                Pagamento ainda não realizado
+                                <% } %>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mx-md-auto col-12">
+                    <div class="row">
+                        <div class="col-md-6 col-12">
+                            <div class="justify-content-center align-content-center">
+                                <a href="pagamento-online-cartao.html"><button class="btn btn-primary">Pague com
+                                        Cartão</button></a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="mx-auto">
+                                <a href="pagamento-online-pix.html "><button class="btn btn-primary">Pague com
+                                        PIX</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    </main>
+
+    <%- include('parts/aboutUs') %>
+
+    <%- include('parts/footer'); %>
+
+</body>
+
+</html>

@@ -57,6 +57,14 @@ p{
     line-height: 30px;
     letter-spacing: 1px;
 }
+
+.black-font{
+    color:#2B353E;
+}
+
+.orange-font{
+    color:#FFA630;
+}
 /* texts */
 
 
@@ -268,6 +276,7 @@ li{
     border-radius: 25px;
     text-align: center;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 
@@ -277,6 +286,7 @@ li{
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     text-align: left;
+    padding-bottom: 10px;
 }
 
 .price-section-title h3 {
@@ -371,7 +381,7 @@ li{
 
 
 /*payment page*/
-.payment-header{
+.special-header{
     padding: 50px 0px;
     display: flex;
     justify-content: space-between;
@@ -444,6 +454,24 @@ input[type=submit]{
 .hero-section-vagas h3{
     color:white;
 }
+
+/*Alterar Precos Page*/
+.hero-section-change-price{
+    background-color:#BBBBBB;
+}
+
+.black-font{
+    color:#2B353E;
+}
+
+.price-change-section{
+    padding: 100px 0px;
+}
+
+.price-change-section h2{
+    margin-bottom: 15px;
+}
+
 
 /*about us page*/
 
