@@ -381,6 +381,10 @@ li{
 
 
 /*payment page*/
+.payment-h1{
+    font-size: 38px;
+}
+
 .special-header{
     padding: 50px 0px;
     display: flex;
@@ -473,4 +477,37 @@ input[type=submit]{
 
 .price-change-section h2{
     margin-bottom: 15px;
+}
+
+/* ticketTable */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #dddddd;
+}
+.box{
+    width: 45%;
+    border-radius: 16px;;
+    border: #FFA630 1px solid;
+    background-color: #ffa53017;
+    padding: 25px;
+    margin: 50px 0px 35px 0px;
+}
+
+.box p{
+    color: black;
+}
+
+.box h4 {
+color:red;
 }

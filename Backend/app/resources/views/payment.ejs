@@ -4,32 +4,26 @@
 <%- include('parts/head') %>
 
 <body>
-    <%- include('parts/header'); %>
+    <div class="container">
+    <%- include('parts/pagamentoHeader'); %>
 
-    <main class="hero-section hero-section-payment">
-        <div class="container bg-white">
-            <div class="h2 text-center">Dados do Ticket</div>
-            <div class="row">
-                <div class="col-md-6 col-9 mx-auto">
-                    <%- include('parts/ticketTable', { ticket, payment, price }) %>
-                </div>
-            </div>
+    <h1 class="orange-font payment-h1">Dados do Ticket</h1>
+    <%- include('parts/ticketTable', { ticket, payment, price }); %>
 
             <% if(!payment || !payment.validExit()) { %>
-            <div class="row">
-                <form class="col-auto mx-auto" action="/pagamento/<%= ticket.codigo %>" method="post">
+            <form action="/pagamento/<%= ticket.codigo %>" method="post">
+                <div class="inputwrapper">
                     <input type="text" name="card" id="card">
                     <button class="btn btn-primary btn-lg my-4" type="submit">Pagar</button>
-                </form>
-            </div>
+                </div>
+            </form>
             <% } %>
-        </div>
-    </main>
 
-    <%- include('parts/aboutUsLight'); %>
 
-    <%- include('parts/footerDark'); %>
 
+
+
+    </div>
+    
 </body>
-
 </html>

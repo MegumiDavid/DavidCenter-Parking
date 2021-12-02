@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <%- include('parts/head') -%>
+<body>
+    <div class="container">
+    <%- include('parts/pagamentoHeader') -%>
+
+        <h1 class="orange-font payment-h1">Método de pagamento: PIX</h1>
+
+        <form action="/pagamento-online/dados" method="post">
+
+            <div class="inputwrapper">
+                <label for="ticketID">Insira o ID do cartão do estacionamento</label>
+                <input type="text" name="ticketID" id="ticketID" placeholder="0" required>
+            </div>
+            
+            <div class="inputwrapper">
+                <label for="numPix">Insira o código do PIX</label>
+                <input type="text" name="numPix" id="numPix" placeholder="0000.0000.0000.0000">   
+            </div>
+
+            <div class="inputwrapper">
+                <input type="submit" value="Continuar">
+            </div>
+
+        </form>
+    </div>
+    
+</body>
+</html>

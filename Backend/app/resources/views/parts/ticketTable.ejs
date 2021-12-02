@@ -7,14 +7,14 @@
     </tr>
     <% if(ticket.horaSaida) { %>
     <tr>
-        <td>Horário de Saída</td>
+        <td>Horário de Saída</td> 
         <td class="text-end">
             <%= ticket.horaSaida.toLocaleString("pt-BR") %>
         </td>
     </tr>
     <tr>
-        <td>Preço</td>
-        <td class="text-end">
+        <td class="orange-font">Preço</td> 
+        <td class="text-end orange-font">
             <%= new Intl.NumberFormat('pt-BR', { style: 'currency' , currency: 'BRL'
                         }).format(payment.preco) %>
         </td>
@@ -27,8 +27,8 @@
         </td>
     </tr>
     <tr>
-        <td>Preço</td>
-        <td class="text-end">
+        <td class="orange-font">Preço</td>
+        <td class="text-end orange-font">
             <%= new Intl.NumberFormat('pt-BR', { style: 'currency' , currency: 'BRL'
                         }).format(payment.preco) %>
         </td>
@@ -62,7 +62,7 @@
     <% } %>
 </table>
 <% if(!ticket.horaSaida && payment && !payment.validExit()) { %>
-<div class="alert alert-danger" role="alert">
+<div class="box" role="alert">
     <h4>ATENÇÃO!</h4>
     <p>O tempo de tolerância de saída de 15 minutos passou e você deve realizar o pagamento novamente para poder sair.</p>
 </div>
