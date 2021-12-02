@@ -444,3 +444,63 @@ input[type=submit]{
 .hero-section-vagas h3{
     color:white;
 }
+
+/*about us page*/
+
+.hero-section-aboutus{
+    background-image: none;
+    background-color: #F6F6F6;
+    min-height: 50vh;
+    height: 863px;
+}
+
+.funcionalidades{
+    background-image: none;
+    background-color: white;
+    height: 255px;
+}
+
+.hero-section-aboutus h1{
+    color: #2B353E
+}
+
+.hero-section-aboutus p{
+    color: #2B353E
+}
+
+.seguranca-praticidade{
+    background-image: none;
+    background-color: white;
+    height: 1130px;
+}
+.seguranca-praticidade p{
+    color: #2B353E
+}
+
+.pagamento-onlinet{
+    background-image: none;
+    background-color: #F6F6F6;
+    height: 924px;
+}
+.pagamento-onlinet p{
+    color: #2B353E
+}
+
+.phone-payment{
+    width: 994px;
+    height: auto;
+}
+
+.space-overview{
+    width: 1384px;
+    height: auto;
+}
+
+.espaco-amplo{
+    background-image: none;
+    background-color: white;
+    height: 1424px;
+}
+.espaco-amplo p{
+    color: #2B353E
+}
