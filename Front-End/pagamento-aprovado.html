@@ -16,6 +16,16 @@
 
     <!-- my css -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .flexbox-align-center{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+    </style>
+
 </head>
 <body>
     <div class="container">
@@ -26,25 +36,14 @@
             <div class="page-name">Pagamento Online</div>
         </div>
 
-        <h1 class="orange-font" style="font-size: 38px;">Método de pagamento: PIX</h1>
+        <div class="flexbox-align-center">
+            <h1 class="orange-font" style="font-size: 38px; margin-bottom: 0px;">Pagamento Efetuado Com Sucesso</h1>
+            <h3 style="margin-bottom: 100px;">Volte Sempre ao DavidCenter</h3>
+            <img src="img/davidcenter-estacionamento.png" alt="estacionamento">
+            <h3 style="margin-top: 100px;"><a href="index.html" style="text-decoration: aqua;color:black;"> Voltar para Página Home → </a></h3>
+        </div>
 
-        <form action="mail.php" method="post">
-
-            <div class="inputwrapper">
-                <label for="cartaoID">Insira o ID do cartão do estacionamento</label>
-                <input type="text" name="cartaoID" id="cartaoID" placeholder="0">
-            </div>
-            
-            <div class="inputwrapper">
-                <label for="numCartao">Insira o código do PIX</label>
-                <input type="text" name="numCartao" id="numCartao" placeholder="0000.0000.0000.0000">   
-            </div>
-
-            <div class="inputwrapper">
-                <input type="submit" value="Continuar">
-            </div>
-
-        </form>
+        
     </div>
     
 </body>

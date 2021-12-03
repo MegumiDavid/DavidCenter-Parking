@@ -1,100 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DavidCenter - Estacionamento</title>
-
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&family=Roboto:wght@300;400;500&display=swap"
-        rel="stylesheet">
-
-    <!-- css reset -->
-    <link rel="stylesheet" href="css/css-reset.css">
-
-    <!-- my css -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-</head>
+<%- include('parts/head') %>
 
 <body>
     <%- include('parts/header'); %>
 
-        <main class="hero-section">
-            <div class="container">
-                <div class="text-section">
-                    <h1>Estacione de Maneira Simples</h1>
-                    <p>O novo estacionamento do David Center promove a melhor experiencia para os motorista. São
-                        vagas
-                        monitoradas para facilitar na hora de estacionar e pagamento online com cartão de crédio e
-                        PIX.
-                        Venha conhecer</p>
-                    <a href="#services-section"><button class="btn">Saiba Mais</button></a>
-                </div>
+    <main class="hero-section">
+        <div class="container">
+            <div class="text-section">
+                <h1>Estacione de Maneira Simples</h1>
+                <p>O novo estacionamento do David Center promove a melhor experiencia para os motorista. São
+                    vagas
+                    monitoradas para facilitar na hora de estacionar e pagamento online com cartão de crédio e
+                    PIX.
+                    Venha conhecer</p>
+                <a href="/about-us"><button class="btn">Saiba Mais</button></a>
             </div>
-        </main>
+        </div>
+    </main>
 
-        <div class="services-section" id="services-section">
-            <div class="container">
-                <h2>Nossos Serviços</h2>
-                <div class="services-item">
-                    <div class="payment-service">
-                        <h3>Pagamento rapido e facil</h3>
-                        <br>
-                        <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                            piece of
-                            classical Latin literature from 45 BC, making it over 2000 years old.
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                            piece of
-                            classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                        <a href="pagamento-online.html"><button class="btn">Pague Agora</button></a>
-                    </div>
-
-                    <div class="vertical-line"></div>
-
-                    <div class="parking-control-service">
-                        <h3>Estacionamento vagas controladas</h3>
-                        <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                            piece of
-                            classical Latin literature from 45 BC, making it over 2000 years old.
-                            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                            piece of
-                            classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                        <a href="#"><button class="btn">Veja Vagas</button></a>
-                    </div>
+    <div class="services-section" id="services-section">
+        <div class="container">
+            <h2>Nossos Serviços</h2>
+            <div class="services-item">
+                <div class="payment-service">
+                    <h3>Pagamento rapido e facil</h3>
+                    <br>
+                    <p> O David Center agora possui um pagamento facil e rapido. Agora os pagamentos sao possíveis ser feitas pelo nosso sistema web de pagamento. Basta inserir os seus dados que o pagamento da conta do estacionamento estara feito. Faça ja seu pagamento com o link abaixo</p>
+                    <a href="/pagamento-online"><button class="btn">Pague Agora</button></a>
+                </div>
+    
+                <div class="vertical-line"></div>
+    
+                <div class="parking-control-service">
+                    <h3>Estacionamento vagas controladas</h3>
+                    <p> O David Center agora possui um sistema que consegue controlar quantas vagas tem no estacionamento. Assim nos conseguimos orientar os motorista mais facilmente, conseguindo achar a vaga ideal mais rapidamente assim, as pessoas conseguem desfrutar mais tempo em nosso Shopping Center</p>
+                    <a href="/vagas"><button class="btn">Veja Vagas</button></a>
                 </div>
             </div>
         </div>
+    </div>
 
+    <%- include('parts/aboutUsDark'); %>
 
-        <div class="about-us-section" id="about-us-section">
-            <div class="container">
-                <div class="about-us-flexbox">
-                    <div class="about-us-img">
-                        <img src="img/about-us-img.png" alt="About Us Image">
-                    </div>
-                    <div class="about-us-text">
-                        <h2>Sobre Nós</h2>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                            piece of
-                            classical Latin literature from 45 , making it over 2000 years old. Contrary to popular
-                            belief,
-                            Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin
-                            literature
-                            from 45 BC, making it over 2000 years </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <%- include('parts/footer'); %>
+    <%- include('parts/footerLight'); %>
 </body>
 
 </html>

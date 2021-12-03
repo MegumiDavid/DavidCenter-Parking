@@ -1,0 +1,69 @@
+<table class="w-100 mx-1 my-3">
+    <tr>
+        <td>Horário de Entrada</td>
+        <td class="text-end">
+            <%= ticket.horaEntrada.toLocaleString("pt-BR") %>
+        </td>
+    </tr>
+    <% if(ticket.horaSaida) { %>
+    <tr>
+        <td>Horário de Saída</td> 
+        <td class="text-end">
+            <%= ticket.horaSaida.toLocaleString("pt-BR") %>
+        </td>
+    </tr>
+    <tr>
+        <td class="orange-font">Preço</td> 
+        <td class="text-end orange-font">
+            <%= new Intl.NumberFormat('pt-BR', { style: 'currency' , currency: 'BRL'
+                        }).format(payment.preco) %>
+        </td>
+    </tr>
+    <% } else if(payment) { %>
+    <tr>
+        <td>Pagamento</td>
+        <td class="text-end">
+            Realizado em <%= payment.hora.toLocaleString("pt-BR") %>
+        </td>
+    </tr>
+    <tr>
+        <td class="orange-font">Preço</td>
+        <td class="text-end orange-font">
+            <%= new Intl.NumberFormat('pt-BR', { style: 'currency' , currency: 'BRL'
+                        }).format(payment.preco) %>
+        </td>
+    </tr>
+    <tr>
+        <td>Tempo Restante para Saída</td>
+        <td class="text-end">
+            <%= Math.max(0, Math.ceil(15 - ((Date.now() - payment.hora.getTime()) / 1000 / 60))) %> minutos
+        </td>
+    </tr>
+    <% } else { %>
+    <tr>
+        <td>Estadia atual</td>
+        <td class="text-end">
+            <%= Math.ceil((Date.now() - ticket.horaEntrada.getTime()) / 1000 / 60) %> minutos
+        </td>
+    </tr>
+    <tr>
+        <td>Preço atual</td>
+        <td class="text-end">
+            <%= new Intl.NumberFormat('pt-BR', { style: 'currency' , currency: 'BRL'
+                        }).format(price) %>
+        </td>
+    </tr>
+    <tr>
+        <td>Pagamento</td>
+        <td class="text-end">
+            Pagamento ainda não realizado
+        </td>
+    </tr>
+    <% } %>
+</table>
+<% if(!ticket.horaSaida && payment && !payment.validExit()) { %>
+<div class="box" role="alert">
+    <h4>ATENÇÃO!</h4>
+    <p>O tempo de tolerância de saída de 15 minutos passou e você deve realizar o pagamento novamente para poder sair.</p>
+</div>
+<% } %>

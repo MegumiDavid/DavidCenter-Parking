@@ -65,7 +65,11 @@ export class Row {
    * @returns Objeto igual ao argumento columns, mas com os nomes dos parâmetros sendo os nomes dos campos
    */
   static columnsToData(columns) {
-    const data = {}
+    if (Array.isArray(columns)) {
+      return columns.map(c => this.columnsToData(c))
+    }
+
+    const data = new this()
     for (const key in columns) {
       const dataKey = Object.keys(this.columnNames).find(name => this.columnNames[name] == key)
       if (dataKey) data[dataKey] = columns[key]
@@ -152,6 +156,12 @@ export class Pagamento extends Row {
     preco: 'PRECO_TAXA',
     codigoTicket: 'CODIGO_TICKET_PAG'
   }
+
+  validExit() {
+    const tolerancia = 1000 * 60 * 15 // 15 minutos de tolerância para a saída
+
+    return Date.now() - this.hora.getTime() < tolerancia
+  }
 }
 
 export class Ticket extends Row {
@@ -164,5 +174,7 @@ export class Ticket extends Row {
     statusSaida: 'STATUS_SAIDA'
   }
 }
+
+
 
 export default db

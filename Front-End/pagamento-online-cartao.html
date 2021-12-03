@@ -20,58 +20,29 @@
 <body>
     <div class="container">
         
-        <div class="payment-header">
+        <div class="special-header">
             <a href="index.html" class="navbar-logo">
                 <span class="bold-logo">David</span><span class="thin-logo">Center</span>
             </a>
             <div class="page-name">Pagamento Online</div>
         </div>
 
-        <h1 style="color:#FFA630; font-size: 38px;">Método de pagamento: cartão de credito</h1>
+        <h1 class="orange-font" style="font-size: 38px;">Método de pagamento: cartão de credito</h1>
 
         <form action="mail.php" method="post">
 
             <div class="inputwrapper">
                 <label for="cartaoID">Insira o ID do cartão do estacionamento</label>
-                <input type="text" name="cartaoID" id="cartaoID" placeholder="0000.0000">
+                <input type="number" name="cartaoID" id="cartaoID" placeholder="0">
             </div>
             
             <div class="inputwrapper">
-                <label for="numCartao">Insira o número do cartão</label>
+                <label for="numCartao">Insira o número do cartão de crédito</label>
                 <input type="text" name="numCartao" id="numCartao" placeholder="0000.0000.0000.0000">   
             </div>
 
             <div class="inputwrapper">
-                <label for="cpf">CPF do Titular</label>
-                <input type="text" name="cpf" id="cpf" placeholder="000.000.000-0">   
-            </div>
-
-            <div class="inputwrapper">
-                <label for="nome">Nome do Titular</label>
-                <input type="text" name="nome" id="nome" placeholder="Seu Nome">   
-            </div>
-
-            <div class="inputwrapper">
-                <label for="validadeCartao">Data de validade do cartão</label>
-                <input type="month" name="validadeCartao" id="validadeCartao" placeholder="Mes/Ano">   
-            </div>
-
-            <div class="inputwrapper">
-                <label for="cvv">Card Verification Value (CVV)</label>
-                <input type="number" name="cvv" id="cvv" placeholder="000">   
-            </div>
-
-            <div class="inputwrapper">
-                <h4 style="color:black; font-style:bold">Valor a Pagar: R$</h4>
-            </div>
-
-            <div class="inputwrapper">
-                <input type="submit" value="Efetuar Pagamento">
-            </div>
-        
-
-            <div class="inputwrapper">
-                <h4 style="color:black; font-style:bold">Status do Pagamento</h4>
+                <input type="submit" value="Continuar">
             </div>
         </form>
 

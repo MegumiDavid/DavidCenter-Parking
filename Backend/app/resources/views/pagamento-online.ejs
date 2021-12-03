@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include('parts/head') -%>
+
+<body>
+    <%- include('parts/header'); %>
+
+    <main class="hero-section hero-section-payment"> 
+        <div class="container">
+            <div class="cards">
+    
+                <div class="card">
+                    <div class="price-section">
+                        <div class="price-section-title">
+                            <h3>Até 1h</h3>
+                            <h1>R$<%= preco.preco1 %></h1>
+                        </div>
+                    </div>
+                    <div class="price-text-section">
+                        <p>Tempo limite para sair do estacionamento após o pagamento: 15 minutos </p>
+                        <p>Caso passe esse tempo, deverá que efetuar um novo pagamento</p>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="price-section">
+                        <div class="price-section-title">
+                            <h3>Até 2h</h3>
+                            <h1>R$<%= preco.preco2 %></h1>
+                        </div>
+                    </div>
+                    <div class="price-text-section">
+                        <p>Tempo limite para sair do estacionamento após o pagamento: 15 minutos </p>
+                        <p>Caso passe esse tempo, deverá que efetuar um novo pagamento</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="price-section">
+                        <div class="price-section-title">
+                            <h3>Acima 2h</h3>
+                            <h1>R$<%= preco.preco3 %></h1>
+                        </div>
+                    </div>
+                    <div class="price-text-section">
+                        <p>Tempo limite para sair do estacionamento após o pagamento: 15 minutos </p>
+                        <p>Caso passe esse tempo, deverá que efetuar um novo pagamento</p>            
+            
+                    </div>
+                </div>
+        </div>
+    
+        <div class="button-section">
+            <a href="/pagamento-online/cartao"><button class="btn">Pague com Cartão</button></a>
+            <a href="/pagamento-online/pix "><button class="btn secundary-btn">Pague com PIX</button></a>
+        </div>
+    
+    </main>
+
+    <%- include('parts/aboutUsLight') -%>
+
+    <%- include('parts/footerDark') -%>
+
+
+
+</body>
+</html>

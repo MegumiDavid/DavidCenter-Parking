@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DavidCenter - Estacionamento</title>
+
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- css reset -->
+    <link rel="stylesheet" href="css/css-reset.css">
+
+    <!-- my css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        th {
+          background-color: #dddddd;
+        }
+        .box{
+            width: 45%;
+            border-radius: 16px;;
+            border: #FFA630 1px solid;
+            background-color: #ffa53017;
+            padding: 25px;
+            margin: 50px 0px 35px 0px;
+        }
+
+        .box p{
+            color: black;
+        }
+
+        </style>
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="special-header">
+            <a href="index.html" class="navbar-logo">
+                <span class="bold-logo">David</span><span class="thin-logo">Center</span>
+            </a>
+            <div class="page-name">Pagamento Online</div>
+        </div>
+
+        <h1 class="orange-font" style="font-size: 38px;">Dados do Ticket</h1>
+        <table>
+            <tr>
+              <th>Horário de Entrada</th>
+              <th>Horário de Saída</th>
+              <th>Tempo Restante Para Sair</th>
+              <th>Preço</th>
+            </tr>
+            <tr>
+              <td>28/11/2021 18:40:20</td>
+              <td>Realizado em 28/11/2021 19:58:49</td>
+              <td>15 minutos</td>
+              <td style="color:#FFA630;"><strong>R$ 10.00</strong></td>
+            </tr>
+          </table>
+
+          <div class="box">
+                <h4><strong>ATENÇÃO</strong></h4>
+                <p>O tempo de tolerância de saída de 15 minutos passou e você deve realizar o pagamento novamente para poder sair</p>
+                    
+          </div>
+
+        <form action="mail.php" method="post">
+            <div class="inputwrapper">
+                <input type="submit" value="Efetuar Pagamento">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
