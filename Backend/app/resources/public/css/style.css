@@ -511,3 +511,8 @@ th {
 .box h4 {
 color:red;
 }
+
+h4.pagamento-aprovado{
+    margin-top: 50px;
+    font-size: 25px;
+}

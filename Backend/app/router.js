@@ -33,7 +33,7 @@ router.get('/pagamento/:id', async ctx => {
   const id = ctx.params.id
   if (!id) {
     await ctx.render('paymentError', { error: new Error('Código de ticket inválido') })
-    /* return */
+    return
   }
   const ticket = await Ticket.find(id)
   const price = getPrice(ticket)

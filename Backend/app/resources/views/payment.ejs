@@ -13,10 +13,11 @@
             <% if(!payment || !payment.validExit()) { %>
             <form action="/pagamento/<%= ticket.codigo %>" method="post">
                 <div class="inputwrapper">
-                    <input type="text" name="card" id="card">
                     <button class="btn btn-primary btn-lg my-4" type="submit">Pagar</button>
                 </div>
             </form>
+            <% } else {%>
+                <h4 class="pagamento-aprovado orange-font">Pagamento Efetuado Com Sucesso</h3>
             <% } %>
 
 
