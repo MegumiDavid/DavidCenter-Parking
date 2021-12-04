@@ -108,7 +108,7 @@ nav{
 
 /* hero section */
 .hero-section{
-    background: url("../img/header-img.png");
+    background: url("../img/header-img2.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -117,8 +117,11 @@ nav{
 }
 
 .text-section{
-    margin-top: 15vh;
-    max-width: 65%;
+    position: absolute;
+    margin-top: 17vh;
+    max-width: 45%;
+    left:15vh;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
 }
 
 .btn {
