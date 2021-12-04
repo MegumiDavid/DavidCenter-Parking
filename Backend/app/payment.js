@@ -25,10 +25,11 @@ export async function makePayment(ticketcod) {
   switch (ticket.statusSaida) {
     case 'DENIED':
       const price = getPrice(ticket)
-      await Pagamento.create({ hora: new Date(), preco: price, codigoTicket: ticketcod })
+      const pagamento = await Pagamento.create({ hora: new Date(), preco: price, codigoTicket: ticketcod })
       ticket.statusSaida = 'OK'
       await Ticket.save(ticket)
       console.log('Pagamento realizado com sucesso.')
+      return pagamento
       break
     case 'OK':
       console.log('Pagamento ja realizado previamente.')
