@@ -193,9 +193,15 @@ nav{
     top: 5px;
 }
 
+.about-us-btn{
+    width: auto;
+    text-align: center;
+}
+
 .about-us-text{
     flex: right;
     width: 45%;
+    align-items: center;
 }
 
 .about-us-text h2{
@@ -540,6 +546,14 @@ input[type=submit]{
     justify-content: space-between;
 }
 
+.mall-image{
+    transition: transform 500ms ease;
+}
+
+.mall-image:hover{
+    transform: scale(1.05);
+}
+
 .funcionalidades{
     background-image: none;
     background-color: white;
@@ -567,6 +581,11 @@ input[type=submit]{
 .sensor-image{
     width: 1386px;
     height: auto;
+    transition: transform 500ms ease;
+}
+
+.sensor-image:hover{
+    transform: scale(1.05);
 }
 
 .seguranca-praticidade{
@@ -613,6 +632,11 @@ input[type=submit]{
     width: 770px;
     height: auto;
     padding-left: 125px;
+    transition: transform 500ms ease;
+}
+
+.phone-payment:hover{
+    transform: scale(1.05);
 }
 
 .space-overview{
@@ -623,6 +647,11 @@ input[type=submit]{
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 78px;
+    transition: transform 500ms ease;
+}
+
+.space-overview:hover{
+    transform: scale(1.05);
 }
 
 .espaco-amplo{
@@ -655,6 +684,11 @@ input[type=submit]{
     width: 983px;
     height: auto;
     padding-bottom: 61px;
+    transition: transform 500ms ease;
+}
+
+.cancela-render:hover{
+    transform: scale(1.05);
 }
 
 .text-box{
