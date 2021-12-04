@@ -89,13 +89,14 @@ router.get('/vagas', async ctx => {
 
   let vagaLivre = 0
   let vagaOcupada = 0
-  let numVagasAndar = []
+  let numVagasAndar = [0,0,0,0,0]
   let melhorVaga = 0
   let vagaLivre1 = 0
   let vagaLivre2 = 0
   let vagaLivre3 = 0
   let vagaLivre4 = 0
   let vagaLivre5 = 0
+  let statusVaga = ''
 
   for (let i = 0; i < vagas.length; i++) {
     if (vagas[i].status == 0) {
@@ -132,9 +133,29 @@ router.get('/vagas', async ctx => {
   function getMaxOfArray(numArray) {
     return Math.max.apply(null, numArray)
   }
+  function equalValuesTotal(array, num){
+    for (let i = 0; i < array.length; i++){
+        if (array[i] != num) {return false}
+      }
+      return true
+    }
+  function equalValues(array){
+    for (let i = 0; i < array.length; i++){
+        if (array[0] != array[i]) {return false}
+      }
+      return true
+    }
 
-  melhorVaga = numVagasAndar.indexOf(getMaxOfArray(numVagasAndar)) + 1
-  const statusVaga = `O ${melhorVaga}° andar possui mais vagas disponíveis`
+  let existeEqualValues = equalValues(numVagasAndar)
+  let existeEqualValuesTotal = equalValuesTotal(numVagasAndar,0)
+
+  if (existeEqualValues && existeEqualValuesTotal) {  // todas as vagas ocupadas
+    statusVaga = "O estacionamento está 100% ocupado"
+  } else {
+    melhorVaga = numVagasAndar.indexOf(getMaxOfArray(numVagasAndar)) + 1
+    statusVaga = `O ${melhorVaga}° andar possui mais vagas disponíveis`
+  }
+  
   await ctx.render('vagas', { vagaOcupada, vagaLivre, statusVaga })
 })
 
