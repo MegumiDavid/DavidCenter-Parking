@@ -4,3 +4,8 @@ build
 .DS_STORE
 .env
 Prototipos Hardware/totems/sketch_nov05a/arduino_segredos.h
+Backend/.env.example
+Backend/.env.example
+Backend/.env.example
+Backend/package-lock.json
+Backend/.env.example
