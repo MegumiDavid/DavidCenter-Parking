@@ -12,6 +12,10 @@ router.get('/', async ctx => {
   await ctx.render('home')
 })
 
+router.get('/about-us', async ctx => {
+  await ctx.render('about-us')
+})
+
 router.get('/pagamento-online', async ctx => {
   await ctx.render('pagamento-online', { preco: preco })
 })
