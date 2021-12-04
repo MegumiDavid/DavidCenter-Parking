@@ -8,7 +8,9 @@ export function getPrice(ticket) {
   diff = diff / 60000
   var taxa = 0
 
-  if (diff < 60) {
+  if (diff <= 15) {
+    taxa = 0;
+  } else if (diff < 60) {
     taxa = preco.preco1
   } else if (diff >= 60 && diff < 120) {
     taxa = preco.preco2
