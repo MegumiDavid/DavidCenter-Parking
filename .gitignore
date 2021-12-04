@@ -9,3 +9,4 @@ Backend/.env.example
 Backend/.env.example
 Backend/package-lock.json
 Backend/.env.example
+*.example
