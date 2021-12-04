@@ -449,17 +449,32 @@ input[type=submit]{
     margin-top: 100px;
     display: flex;
     justify-content:space-around;
+    margin-bottom: 80px;
 }
 
 .feedback-section{
     border-radius: 32px;
-    margin-top: 80px;
     background-color: #FFA630;
-    padding: 40px 0px 5px 0px ;
+    padding: 30px 0px;
 }
 
 .hero-section-vagas h3{
     color:white;
+    margin-bottom: 0px;
+}
+
+.link-h4{
+    margin-top: 60px;
+}
+
+.link-h4 a{
+    font-size: 30px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.arrow-right{
+    font-size: 50px;
 }
 
 /*Alterar Precos Page*/

@@ -6,6 +6,7 @@ import { Price } from './precos.js'
 const router = new Router()
 
 const preco = new Price(10, 15, 25)
+const numVagasAndar = [0,0,0,0,0]
 
 router.get('/', async ctx => {
   await ctx.render('home')
@@ -86,7 +87,6 @@ router.get('/vagas', async ctx => {
 
   let vagaLivre = 0
   let vagaOcupada = 0
-  let numVagasAndar = [0, 0, 0, 0, 0]
   let melhorVaga = 0
   let vagaLivre1 = 0
   let vagaLivre2 = 0
@@ -157,9 +157,13 @@ router.get('/vagas', async ctx => {
     melhorVaga = numVagasAndar.indexOf(getMaxOfArray(numVagasAndar)) + 1
     statusVaga = `O ${melhorVaga}° andar possui mais vagas disponíveis`
   }
-
   await ctx.render('vagas', { vagaOcupada, vagaLivre, statusVaga })
 })
+
+router.get('/vagas/vagas-andar', async ctx => {
+  await ctx.render('vagaPorAndar', { numVagasAndar:numVagasAndar })
+})
+
 
 export { preco }
 export default router

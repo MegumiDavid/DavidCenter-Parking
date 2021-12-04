@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<%- include('parts/head') -%>
+<body>        
+    <div class="container">
+        <div class="special-header">
+            <a href="/" class="navbar-logo">
+                <span class="bold-logo">David</span><span class="thin-logo">Center</span>
+            </a>
+            <div class="page-name">Estacionamento Vagas</div>
+        </div>
+        <h1 class="orange-font payment-h1" style="font-size: 38px;">Vagas por Andar</h1>
+
+        <table class="w-100 mx-1 my-3">
+            <% for(let i=0; i<numVagasAndar.length; i++) {%>
+            <tr>
+                <td>Andar <%= i+1 %></td>
+                <td class="text-end">
+                    <%= numVagasAndar[i] %> Vagas Livres
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+    
+</body>
+</html>
