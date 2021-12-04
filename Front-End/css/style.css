@@ -764,7 +764,7 @@ input[type=submit]{
     background: linear-gradient(180deg, #FFAD41 81.77%, #FF9100 100%);
     border-radius: 18px;
     width: 353px;
-    height: 370px;
+    height: 400px;
     position: relative;
     overflow: hidden;
 
@@ -784,11 +784,12 @@ input[type=submit]{
     width: 353px;
     left: auto;
     right: auto;
-    bottom: 110px;
+    bottom: 115px;
+    text-align: center;
 }
 
 .card-content{
-    transform: translateY(215px);
+    transform: translateY(210px);
     transition: transform 500ms ease;
     transition-delay: 500ms;
 }
