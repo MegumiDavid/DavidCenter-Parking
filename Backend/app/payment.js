@@ -26,7 +26,8 @@ export async function makePayment(ticketcod) {
     case 'DENIED':
       const price = getPrice(ticket)
       await Pagamento.create({ hora: new Date(), preco: price, codigoTicket: ticketcod })
-      await Ticket.save({ codigo: ticketcod, statusSaida: 'OK' })
+      ticket.statusSaida = 'OK'
+      await Ticket.save(ticket)
       console.log('Pagamento realizado com sucesso.')
       break
     case 'OK':
