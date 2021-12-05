@@ -7,7 +7,7 @@
 #include <string>
 
 //declarando variaveis para acesso do bd
-char* usr = (char*)"root";
+char* usr = (char*)"****";
 char* pass = (char*)"******";
 char* db = (char*)"DavidCenter";
 

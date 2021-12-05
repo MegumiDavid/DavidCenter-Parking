@@ -2,12 +2,11 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-#include <time.h>
 #include <iomanip>
 #include <locale.h>
 
 //declarando variaveis para acesso do bd
-char* usr = (char*)"root";
+char* usr = (char*)"****"; //substituir por info do bd
 char* pass = (char*)"*******";
 char* db = (char*)"DavidCenter";
 
@@ -30,7 +29,7 @@ void imprime_bd()
     if (conn) {
         puts("Conexao com o Banco de Dados bem sucedida!");
 
-        std::string query = "SELECT * FROM CLIENTES";
+        std::string query = "SELECT * FROM tickets";
         const char* q = query.c_str();
         qstate = mysql_query(conn, q);
         if (!qstate)
@@ -86,7 +85,7 @@ int checa_cod(std::string cod_compara)
     if (conn) {
         puts("Conexao com o Banco de Dados bem sucedida!");
 
-        std::string query = "SELECT * FROM CLIENTES";
+        std::string query = "SELECT * FROM tickets";
         const char* q = query.c_str();
         qstate = mysql_query(conn, q);
         if (!qstate)
@@ -106,6 +105,72 @@ int checa_cod(std::string cod_compara)
             puts("Falha ao conectar com o Banco de dados!");
     }
     return 1;
+}
+
+//conecta com o bd e checa o status da saida de um codigo, depois fecha a conexao
+int checastatus(std::string cod)
+{
+    MYSQL_RES* res;
+    conn = mysql_init(0);
+
+    conn = mysql_real_connect(conn, "localhost", usr, pass, db, 3306, NULL, 0);
+
+    if (conn) {
+
+        std::string query = "SELECT * FROM tickets WHERE CODIGO_TICKET = '" + cod + "';";
+        const char* q = query.c_str();
+        qstate = mysql_query(conn, q);
+        if (!qstate)
+        {
+            res = mysql_store_result(conn);
+            while (linha = mysql_fetch_row(res))
+            {
+                if (strcmp(linha[3],"OK") == 0) return 0;
+                else return 1;
+            }
+        }
+        else
+        {
+            std::cout << "Query falhou: " << mysql_error(conn) << std::endl;
+        }
+    }
+    else {
+        puts("Falha ao conectar com o Banco de dados!");
+    }
+    return 2;
+}
+
+//conecta com o bd e checa o status da saida de um codigo, depois fecha a conexao
+int checadiff(std::string cod)
+{
+    int x;
+    MYSQL_RES* res;
+    conn = mysql_init(0);
+
+    conn = mysql_real_connect(conn, "localhost", usr, pass, db, 3306, NULL, 0);
+
+    if (conn) {
+
+        std::string query = "select CalcDiff(HORA_ENTRADA, now()) from PAGAMENTOS, TICKETS where CODIGO_TICKET = '" + cod + "';"; 
+        const char* q = query.c_str();
+        qstate = mysql_query(conn, q);
+        if (!qstate)
+        {
+            res = mysql_store_result(conn);
+            while (linha = mysql_fetch_row(res))
+            {
+                sscanf(linha[0], "%d", &x);
+                return x;
+            }
+        }
+        else
+        {
+            std::cout << "Query falhou: " << mysql_error(conn) << std::endl;
+        }
+    }
+    else {
+        puts("Falha ao conectar com o Banco de dados!");
+    }
 }
 
 //funcao que valida int
@@ -142,27 +207,12 @@ void menu_de_opcoes(int& opcao_menu)
         if (opcao_menu < 0 || opcao_menu > 6) std::cout << "\n>>Insira apenas valores existentes no menu!\n";
     } while (opcao_menu < 0 || opcao_menu > 6);
 
-
-}
-
-//simula uma entrada
-void entrada()
-{
-    // data e hora baseadas nas config. locais
-    time_t agora = time(0);
-    // converte para string
-    std::string hora_entrada = ctime(&agora);
-    //insere_bd_entrada(hora_entrada, "NEGADA");
-    rodacomando("insert into clientes (hora_entrada, status_saida) values ('" + hora_entrada + "', 'NEGADA'); ");
 }
 
 //simula uma saida
 void saida()
 {
-    int checa;
-    // data e hora baseadas nas config. locais
-    time_t agora = time(0);
-    std::string hora_saida = ctime(&agora);
+    int checa, status;
     int cod_saida;
     valida_input(cod_saida, "Codigo do ticket: ");
     //checar se a saida foi liberada pelo sistema (no momento vou simular isso)
@@ -170,23 +220,22 @@ void saida()
     if (checa == 1) std::cout << "Codigo nao existe no Banco de Dados!";
     else
     {
-        int resposta;
-        do {
-            valida_input(resposta, "A saida do ticket foi liberada?(1=s/2=n)");
-            if (resposta < 1 || resposta > 2) std::cout << "\n>>Insira apenas 1 para 's' ou 2 para 'n'!\n";
-        } while (resposta < 1 || resposta > 2);
+        status = checastatus(std::to_string(cod_saida));
 
-        switch (resposta)
+        switch (status)
         {
-        case 1: //'S' - saida liberada
+        case 0: // - saida liberada
             //escrever  cod ticket e hora de entrada 
-            //insere_bd_saida(hora_saida, "LIBERADA", std::to_string(cod_saida));
-            rodacomando("UPDATE clientes set hora_saida = ' " + hora_saida + "', status_saida = 'LIBERADA' WHERE CODIGO_TICKET = '" + std::to_string(cod_saida) + "';");
-            //envia pro bd
+            //insere_bd_saida(hora_saida, std::to_string(cod_saida));
+            rodacomando("UPDATE tickets set hora_saida = now() WHERE CODIGO_TICKET = '" + std::to_string(cod_saida) + "';");
             break;
-
-        case 2: //'N' - saida negada
-            std::cout << "O pagamento da taxa de estacionamento nao foi realizado! " << std::endl;
+        case 1: // - saida negada
+            if (checadiff(std::to_string(cod_saida)) <= 15)
+                rodacomando("UPDATE tickets set hora_saida = now(), status_saida ='OK' WHERE CODIGO_TICKET = '" + std::to_string(cod_saida) + "';");
+            else std::cout << "O pagamento da taxa de estacionamento nao foi realizado! " << std::endl;
+            break;
+        default:
+            std::cout << "Erro ao checar status de saida! " << std::endl;
             break;
         }
     }
@@ -204,7 +253,8 @@ int main()
         switch (opcao)
         {
         case 1:
-            entrada();
+            //insere_bd_entrada(hora_entrada, 'DENIED');
+            rodacomando("insert into tickets (hora_entrada, status_saida) values (now(), 'DENIED'); ");
             break;
         case 2:
             saida();
@@ -213,15 +263,13 @@ int main()
             imprime_bd();
             break;
         case 4:
-            rodacomando("DELETE FROM clientes;");
-            /*DELETE FROM clientes;
-            ALTER TABLE clientes AUTO_INCREMENT = 1;*/
+            rodacomando("DELETE FROM tickets;");
             break;
         case 5: 
-            rodacomando("ALTER TABLE clientes AUTO_INCREMENT = 1;");
+            rodacomando("ALTER TABLE tickets AUTO_INCREMENT = 1;");
             break;
         case 6:
-            rodacomando("DELETE FROM taxas; ");
+            rodacomando("DELETE FROM pagamentos; ");
             break;
         default: std::cout << "Fechando programa. "; break;
         }
